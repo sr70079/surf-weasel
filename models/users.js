@@ -1,13 +1,13 @@
-const sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
 const users = sequelize.define('users', {
 
-    username: sequelize.STRING,
-    password: sequelize.STRING,
-    email: sequelize.STRING,
-    name: sequelize.STRING
+  username: Sequelize.STRING,
+  password: Sequelize.STRING,
+  email: Sequelize.STRING,
+  name: Sequelize.STRING
 
 });
 
