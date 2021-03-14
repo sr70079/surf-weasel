@@ -2,10 +2,9 @@ const Sequelize = require('sequelize');
 
 // database name, username , password, email, name, {connection info}
 const sequelize = new Sequelize('users_db', 'admin', '12345678', 'joeshmo@gmail.com', 'Joe', {
-
+  dialect: 'mysql',
   host: 'localhost',
-  port: 3306,
-  dialect: 'mysql'
+  port: 3306
 
 });
 
