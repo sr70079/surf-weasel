@@ -11,8 +11,6 @@ const sequelize = new Sequelize('users_db', 'admin', '12345678', 'joeshmo@gmail.
 
 module.exports = sequelize;
 
-
-
 // module.exports = {
 //   development: {
 //     username: process.env.SEQUELIZE_USER,
