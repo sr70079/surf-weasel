@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('users_db', 'admin', '12345678', {
+// database name, username , password, email, name, {connection info}
+const sequelize = new Sequelize('users_db', 'admin', '12345678', 'joeshmo@gmail.com', 'Joe', {
 
   host: 'localhost',
   port: 3306,
