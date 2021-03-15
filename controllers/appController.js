@@ -1,5 +1,6 @@
 module.exports = function (db) {
   return {
+    // oh CRUD!!
     // Get all examples
     getExamples: function (req, res) {
       db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
