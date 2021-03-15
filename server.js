@@ -13,9 +13,11 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 // api routes
-// require('./routes/apiRoutes.js')(app);
+require('./routes/apiRoutes')(app);
 
 // html routes
 require('./routes/htmlRoutes.js')(app);
-
-app.listen(PORT, () => console.log('listening on PORT 8080'));
+const db = require('./models')
+db.sequelize.sync().then(function(){
+  app.listen(PORT, () => console.log('listening on PORT 8080'));
+})
