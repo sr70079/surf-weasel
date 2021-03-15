@@ -7,7 +7,8 @@ const users = sequelize.define('users', {
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   email: Sequelize.STRING,
-  name: Sequelize.STRING
+  name: Sequelize.STRING,
+  fav_beach: Sequelize.STRING
 
 });
 
