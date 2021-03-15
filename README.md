@@ -36,7 +36,7 @@ For a video of me testing this programme, go to:
 
 ## Contributors
 [Sarah Marshall](https://github.com/sr70079/surf-weasel)
-[Stanley Mcoy](https://github.com/stanleymcoy)
+[Stanley Mccoy](https://github.com/stanleymcoy)
 [Devon Williams](https://github.com/Dwill629)
 [Mitchell Duncan](https://github.com/mdu830)
 [Matthew Eggleston](https://github.com/Callingrapher)
