@@ -17,7 +17,7 @@ require('./routes/apiRoutes')(app);
 
 // html routes
 require('./routes/htmlRoutes.js')(app);
-const db = require('./models')
-db.sequelize.sync().then(function(){
+const db = require('./models');
+db.sequelize.sync().then(function () {
   app.listen(PORT, () => console.log('listening on PORT 8080'));
-})
+});
