@@ -3,7 +3,7 @@ module.exports = function (db) {
     // oh CRUD!!
     // Get all examples
     getExamples: function (req, res) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
+      db.userinfo_db.findAll({ where: { UserId: req.session.passport.users.id } }).then(function (dbExamples) {
         res.json(dbExamples);
       });
     },
