@@ -6,6 +6,6 @@ html, body {
     color: aliceblue;
 }
 
-#login-button {
+#login-button, #signup-button{
     float: right;
 }
