@@ -1,4 +1,4 @@
-//access sequelize server api
+// access sequelize server api
 
 // access magic seaweed api
 
