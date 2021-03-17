@@ -7,7 +7,7 @@
 // query magic seaweed api with *favorite beach info* then put it on the the page
 
 // give link to live cams from magic seaweed(not open by default for better page loading)
-// if there are not cams for this beach display *no beach cams at this time* 
+// if there are not cams for this beach display *no beach cams at this time*
 
-// buttons 
-// popanimations 
+// buttons
+// popanimations
