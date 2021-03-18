@@ -5,11 +5,16 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(path.join(__dirname, '/../config/config.js'))[env];
+// eslint-disable-next-line no-path-concat
+const config = require(__dirname + '/../config/connection.js')[env];
 const db = {};
+<<<<<<< HEAD
 const Handlebars = require("handlebars");
 let sequelize;
+=======
+>>>>>>> 0019b343821138b16e686a225e5727d484d8e1f5
 
+let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
