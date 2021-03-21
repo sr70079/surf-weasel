@@ -1,11 +1,22 @@
-$('#add-user').on('click', function (event) {
+$('#signupBtn').on('click', function (event) {
   event.preventDefault();
+
+  const passInput1 = $('#inputPass1').val().trim();
+  const passInput2 = $('#inputPass2').val().trim();
+  const passInput = $('#inputPass2').val().trim();
+  if (passInput1 === passInput2) {
+    return passInput;
+  } else {
+    console.log('our passwords do not mach please try again');
+  };
+
+  console.log(passInput);
 
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    password: $(passInput).val().trim()
   };
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
