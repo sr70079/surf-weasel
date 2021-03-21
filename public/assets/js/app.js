@@ -1,9 +1,11 @@
 $('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
+  // checking if the two passwords inputed match
   const passInput1 = $('#inputPass1').val().trim();
   const passInput2 = $('#inputPass2').val().trim();
   const passInput = $('#inputPass2').val().trim();
+
   if (passInput1 === passInput2) {
     return passInput;
   } else {
