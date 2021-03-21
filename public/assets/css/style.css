@@ -43,7 +43,7 @@ body {
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 600px; */
-}
+/* } */
 
 [data-useremail="true"] {
   color: white !important;
@@ -71,4 +71,9 @@ hr {
 
 .card-body {
   color: #444;
+}
+
+#map {
+  height: 500px;
+  width: 500px;
 }

@@ -6,8 +6,15 @@
       {{#if isloggedin}}
         You are logged in as {{user.firstName}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+        
       {{else}}
         <p>You need to log in to use this app.</p>
+        <input type="text" id="searchText">
+        {{!-- <button class="btn button" id="search">Search</button> --}}
+        <div>
+          <ul id="searchResults"></ul>
+        </div>
+        <div id="map"></div>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
