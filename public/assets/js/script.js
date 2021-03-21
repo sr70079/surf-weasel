@@ -128,6 +128,6 @@ const lowTide = undefined;// look at example on api need lat and lng with params
 
 // dynamically append "set as favorite beach" button for dashboard when a result is selected by the user and displayed on dashboard
 // make fav beach button add the beach data to the users table, column: fav_beach in sequelize
-// if fav_beach data is true: show it on dashboard at login
+// if fav_beach data is not null: get its data and show it on dashboard at login
 
 // show a loading gif while api is waiting its results (hidden in html)
