@@ -1,4 +1,4 @@
-console.log('hello world');
+console.log('app.js is running');
 $('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
@@ -10,7 +10,8 @@ $('#signupBtn').on('click', function (event) {
   if (passInput1 === passInput2) {
     return passInput;
   } else {
-    console.log('our passwords do not mach please try again');
+    console.log('your passwords do not mach please try again');
+    return;
   };
 
   console.log(passInput);
