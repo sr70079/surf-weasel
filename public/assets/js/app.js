@@ -1,3 +1,4 @@
+console.log('hello world');
 $('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
