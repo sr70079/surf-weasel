@@ -1,0 +1,85 @@
+/* stylesheet for the login page. */
+html,
+body {
+  background: url("images/surfer.png");
+  padding-right: 0px;
+  /* background-color: rgb(209, 207, 207); */
+}
+body {
+  background-image: cover;
+}
+
+nav {
+  
+  width: 40%;
+  height: 80px;
+  border-bottom: 6px solid yellow;
+  overflow: visible;
+}
+
+/* .navbar-dark , .navbar-brand {
+  color:  rgb(106, 134, 158);
+
+} */
+
+.navbar-brand {
+  padding: 10px 200px 40px 20px;
+  justify-content: center;
+  font-family: "Bangers", cursive;
+  color: rgb(106, 134, 158) !important;
+  font-size: 50px;
+  width: 33%;
+}
+
+.weasy {
+  padding-left: 30px;
+  max-width: 100%;
+}
+img {
+  
+}
+
+.media-body {
+  width: 100%;
+  padding: 0;
+  /* border:3px solid blue;  */
+  background: transparent;
+}
+
+.card,
+m-5 {
+  width: 100%;
+  display: cover;
+  margin-top: 0;
+  padding: 0;
+  background-color: transparent;
+  border: hidden;
+  /* border-right: 250px solid black;
+  border-left: 250px solid black; */
+}
+
+h2 {
+  font-family: "Archivo Black", sans-serif;
+}
+.form-control {
+  border-radius: 18px 18px 18px 18px;
+}
+
+.btn {
+  color: rgb(230, 120, 120);
+  padding-top: 20px;
+  border: none;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn-primary {
+  border-radius: 18px 18px 18px 18px;
+  background-color: rgb(40, 40, 43);
+  padding: 4px;
+  justify-content: center;
+  width: 200px;
+  height: auto;
+}
