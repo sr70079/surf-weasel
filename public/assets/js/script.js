@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = '8e9f917c-8817-11eb-a9f7-0242ac130002-8e9f921c-8817-11eb-a9f7-0242ac130002';
+  const APIKey = 'dc97fb66-8b60-11eb-b62d-0242ac130002-dc97fbde-8b60-11eb-b62d-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -40,7 +40,6 @@ $(document).ready(function () {
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
   // search for city/beach
-  const citiesSearched = [];
   $('#searchText').on('change', function (event) {
     const searchText = $('#searchText').val();
     if (searchText.length >= 3) {
@@ -86,7 +85,20 @@ $(document).ready(function () {
         'Authorization': APIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
-      console.log(jsonData);
+      let div = $('<div>');
+      let cityEl = $('<h3>').text(place.name + '(' + new Date().toLocaleDateString('en-US') + ')');
+      let airTempP = $('<p>').text('Temperature: ' + jsonData.hours[0].airTemperature.noaa);
+      let humidityP = $('<p>').text('Humidity: ' + jsonData.hours[0].humidity.noaa);
+      let cloudP = $('<p>').text('Cloud Coverage: ' + jsonData.hours[0].cloudCover.noaa);
+      let precipP = $('<p>').text('Precipitation: ' + jsonData.hours[0].precipitation.noaa);
+      let windP = $('<p>').text('Wind Speed: ' + jsonData.hours[0].windSpeed.noaa);
+        
+      //let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
+      //let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
+    
+      div.append(cityEl, airTempP, humidityP, cloudP, precipP, windP, tempP);
+    
+      $('#main').html(div);
     });
   }
   function getTideInfo (place) {
@@ -117,6 +129,11 @@ $(document).ready(function () {
     });
   }
 });
+
+
+let createCity = function(response, cityName) {
+    
+};
 const time = undefined;
 
 // tide info
