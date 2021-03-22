@@ -35,7 +35,7 @@ $('#signupBtn').on('click', function (event) {
         }
       }
     }).then(() => {
-      // window.location.href = '/';
+      window.location.href = '/';
       console.log(newAccount);
     });
   } else {
