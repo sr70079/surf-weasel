@@ -31,7 +31,7 @@ $('#signupBtn').on('click', function (event) {
       statusCode: {
         // if user already exists in database show this message
         403: function () {
-          $('#CheckPasswordMatch').html('That user already exists in our database');
+          $('#CheckPasswordMatch').html('That user already exists or the email is not an email address');
         }
       }
     }).then(() => {
@@ -40,7 +40,7 @@ $('#signupBtn').on('click', function (event) {
     });
   } else {
     console.log('**Please fill out entire form**');
-    $('#create-err-msg').empty('').text('**Please fill out entire form**');
+    $('#CheckPasswordMatch').empty('').text('**Please fill out entire form**');
   }
 });
 
@@ -57,9 +57,9 @@ $('#login').on('click', function (event) {
   $.post('/api/login', user, (result) => {
     console.log(result);
     if (result.loggedIn) {
-      // $(document.location).attr('href', '/dashboard');
+      $(document.location).attr('href', '/dashboard');
     } else {
-      $('#login-err-msg').text(result.error);
+      // $('#login-err-msg').text(result.error);
       // $('#user-info').modal('hide');
     }
   });
