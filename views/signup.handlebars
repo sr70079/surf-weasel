@@ -6,31 +6,32 @@
       <div class="col-5">
         <p>Please enter the email address you would like to use:</p>
         <div class="input-group mb-3">
-          <input id="emailSignup" type="text" class="form-control" placeholder="Email" aria-label="Email"
+          <input id="inputEmail" type="text" class="form-control" placeholder="Email" aria-label="Email"
             aria-describedby="basic-addon1">
         </div>
         <p>What is your first name?</p>
         <div class="input-group mb-3">
-          <input id="firstNameSignup" type="text" class="form-control" placeholder="First Name" aria-label="First Name"
+          <input id="inputFirst" type="text" class="form-control" placeholder="First Name" aria-label="First Name"
             aria-describedby="basic-addon1">
         </div>
         <p>What is your last name?</p>
 
         <div class="input-group mb-3">
-          <input id="lastNameSignup" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"
+          <input id="inputLast" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"
             aria-describedby="basic-addon1">
         </div>
         <p>Please enter a password for your account:</p>
         <div class="input-group mb-3">
-          <input id="passwordOne" type="text" class="form-control" placeholder="Password" aria-label="Password"
+          <input id="inputPass1" type="text" class="form-control" placeholder="Password" aria-label="Password"
             aria-describedby="basic-addon1">
         </div>
         <p>Please re enter your password:</p>
         <div class="input-group mb-3">
-          <input id="passwordTwo" type="text" class="form-control" placeholder="Password" aria-label="Password"
+          <input id="inputPass2" type="text" class="form-control" placeholder="Password" aria-label="Password"
             aria-describedby="basic-addon1">
         </div>
-        <div id="signup-button">
+        <div id="CheckPasswordMatch" class="mb-3"></div>
+        <div id="signupBtn">
           <button type="submit" class="btn btn-primary">Signup!</button>
         </div>
       </div>
@@ -40,3 +41,5 @@
 
   </div>
 </div>
+{{!-- app.js manages user login and register data --}}
+<script src="/assets/js/app.js"></script>

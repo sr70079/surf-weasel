@@ -1,20 +1,42 @@
-$('#add-user').on('click', function (event) {
+// for login and signup
+console.log('app.js is running on this');
+
+$('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
-  const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+  // check if passwords match
+  const passwordTxt = $('#inputPass1').val().trim();
+  const passwordCheck = $('#inputPass2').val().trim();
+
+  if (passwordTxt !== passwordCheck) {
+    $('#CheckPasswordMatch').html('Passwords do not not match!');
+    return;
   };
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  const firstName = $('#inputFirst').val().trim();
+  const lastName = $('#inputLast').val().trim();
+
+  const newAccount = {
+    name: firstName + ' ' + lastName,
+    email: $('#inputEmail').val().trim(),
+    password: $('#inputPass2').val().trim(),
+    fav_beach: null
+  };
+
+  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.name.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
-      data: newAccount
+      data: newAccount,
+      statusCode: {
+        // if user already exists in database show this message
+        403: function () {
+          $('#CheckPasswordMatch').html('That user already exists in our database');
+        }
+      }
     }).then(() => {
-      window.location.href = '/';
+      // window.location.href = '/';
+      console.log(newAccount);
     });
   } else {
     console.log('**Please fill out entire form**');

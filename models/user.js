@@ -17,19 +17,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // I want to concat first name and last name to "full name"
-
-    firstName: {
+    // full name (concat of firstname and last name)
+    name: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     fav_beach: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
+
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
