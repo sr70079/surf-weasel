@@ -19,10 +19,10 @@ module.exports = (db) => {
           id: req.session.passport.user.id
         }
       }).then(() => {
-        const user = {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated()
-        };
+        // const user = {
+        //   userInfo: req.session.passport.user,
+        //   isloggedin: req.isAuthenticated()
+        // };
         // console.log(user);
         // res.render('login', user);
       });
