@@ -11,7 +11,8 @@ module.exports = (db) => {
   });
 
   // Load profile page
-  router.get('/profile', (req, res) => {
+  router.get('/login', (req, res) => {
+    res.render('login');
     if (req.isAuthenticated()) {
       db.User.findOne({
         where: {
@@ -23,10 +24,10 @@ module.exports = (db) => {
           isloggedin: req.isAuthenticated()
         };
         // console.log(user);
-        res.render('profile', user);
+        // res.render('login', user);
       });
     } else {
-      res.redirect('/');
+      // res.redirect('/');
     }
   });
 
