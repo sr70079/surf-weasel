@@ -1,34 +1,30 @@
+// for login and signup
 console.log('app.js is running on this');
+
 $('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
-  // checking if the two passwords inputed match
-  const passInput1 = $('#inputPass1').val().trim();
-  const passInput2 = $('#inputPass2').val().trim();
-  const passInput = $('#inputPass2').val().trim();
+  // need checking if the two passwords inputed match
 
-  if (passInput1 === passInput2) {
-    return passInput;
-  } else {
-    console.log('our passwords do not mach please try again');
-  };
-
-  console.log(passInput);
+  const firstName = $('#inputFirst').val().trim();
+  const lastName = $('#inputLast').val().trim();
 
   const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
+    name: firstName + ' ' + lastName,
     email: $('#inputEmail').val().trim(),
-    password: $(passInput).val().trim()
+    password: $('#inputPass2').val().trim()
   };
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  console.log(newAccount);
+
+  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.name.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
       data: newAccount
     }).then(() => {
-      window.location.href = '/';
+      // window.location.href = '/';
+      console.log(newAccount);
     });
   } else {
     console.log('**Please fill out entire form**');
