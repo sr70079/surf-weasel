@@ -4,7 +4,7 @@ module.exports = (db) => {
   // Load register page
   router.get('/signup', (req, res) => {
     if (req.isAuthenticated()) {
-      res.redirect('/profile');
+      res.redirect('/');
     } else {
       res.render('signup');
     }
@@ -19,28 +19,28 @@ module.exports = (db) => {
           id: req.session.passport.user.id
         }
       }).then(() => {
-        // const user = {
-        //   userInfo: req.session.passport.user,
-        //   isloggedin: req.isAuthenticated()
-        // };
-        // console.log(user);
-        // res.render('login', user);
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        console.log(user);
+        res.render('login', user);
       });
     } else {
       // res.redirect('/');
     }
   });
 
-  // Load dashboard page
+  // Load login page as home
   router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
+      res.render('login', user);
     } else {
-      res.render('dashboard');
+      res.render('login');
     }
   });
 
@@ -96,7 +96,7 @@ module.exports = (db) => {
         return next(err);
       }
       res.clearCookie('connect.sid', { path: '/' });
-      res.redirect('/');
+      res.redirect('/login');
     });
   });
 

@@ -52,9 +52,10 @@ $('#login').on('click', function (event) {
     email: $('#email').val().trim(),
     password: $('#user_password').val().trim()
   };
+  console.log(user);
 
   $.post('/api/login', user, (result) => {
-    // console.log(result);
+    console.log(result);
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {
