@@ -1,3 +1,6 @@
+{{!-- google maps api script tag is async and the script.js script tag depends on it loading first to run so it is deferred  --}}
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXn93WsnSypxsm5kEisCHg_K8ZyNeVf4U&libraries=places&callback=initMap" type="text/javascript"></script>
+<script defer src="/assets/js/script.js"></script>
 <div id="main-container" class="container">
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead">Welcome to <strong>Sample App</strong></p>

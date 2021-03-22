@@ -2,11 +2,11 @@ const router = require('express').Router();
 
 module.exports = (db) => {
   // Load register page
-  router.get('/register', (req, res) => {
+  router.get('/signup', (req, res) => {
     if (req.isAuthenticated()) {
       res.redirect('/profile');
     } else {
-      res.render('register');
+      res.render('signup');
     }
   });
 
