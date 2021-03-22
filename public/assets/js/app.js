@@ -1,6 +1,6 @@
 // for login and signup
 console.log('app.js is running on this');
-
+// Signup *****************************************
 $('#signupBtn').on('click', function (event) {
   event.preventDefault();
 
@@ -42,6 +42,26 @@ $('#signupBtn').on('click', function (event) {
     console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
+});
+
+// login ********************************************
+$('#login').on('click', function (event) {
+  event.preventDefault();
+
+  const user = {
+    email: $('#email').val().trim(),
+    password: $('#user_password').val().trim()
+  };
+
+  $.post('/api/login', user, (result) => {
+    // console.log(result);
+    if (result.loggedIn) {
+      $(document.location).attr('href', '/dashboard');
+    } else {
+      $('#login-err-msg').empty('').text(result.error);
+      $('#user-info').modal('hide');
+    }
+  });
 });
 
 // $('#update-user').on('click', function (event) {
@@ -131,22 +151,3 @@ $('#signupBtn').on('click', function (event) {
 //   event.preventDefault();
 //   window.location.href = '/';
 // });
-
-$('#login').on('click', function (event) {
-  event.preventDefault();
-
-  const user = {
-    email: $('#email').val().trim(),
-    password: $('#user_password').val().trim()
-  };
-
-  $.post('/api/login', user, (result) => {
-    // console.log(result);
-    if (result.loggedIn) {
-      $(document.location).attr('href', '/dashboard');
-    } else {
-      $('#login-err-msg').empty('').text(result.error);
-      $('#user-info').modal('hide');
-    }
-  });
-});
