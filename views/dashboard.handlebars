@@ -9,15 +9,14 @@
       {{#if isloggedin}}
         You are logged in as {{user.name}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
-        
-      {{else}}
-        <p>You need to log in to use this app.</p>
-        <input type="text" id="searchText">
+                <input type="text" id="searchText">
         {{!-- <button class="btn button" id="search">Search</button> --}}
         <div>
           <ul id="searchResults"></ul>
         </div>
         <div id="map"></div>
+      {{else}}
+        <p>You need to log in to use this app.</p>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
