@@ -31,7 +31,7 @@ $('#signupBtn').on('click', function (event) {
       statusCode: {
         // if user already exists in database show this message
         403: function () {
-          $('#CheckPasswordMatch').html('That user already exists or the email is not an email address');
+          $('#CheckPasswordMatch').html('That user already exists or the email entered is not an email address');
         }
       }
     }).then(() => {
@@ -59,7 +59,7 @@ $('#login').on('click', function (event) {
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {
-      // $('#login-err-msg').text(result.error);
+      $('#login-err-msg').text(result.error);
       // $('#user-info').modal('hide');
     }
   });
