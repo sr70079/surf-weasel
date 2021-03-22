@@ -1,0 +1,20 @@
+Handlebars.registerPartial('headerButton.handlebars' , '{{headerButtons}}');
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid justify-content-center">
+                <span id="title" class="navbar m-n1 mb-0 h1 navbar-brand"><h1>Surf Weasel</h1></span>
+                <button type="button" class="btn btn-header-1 active">Home</button>
+                <button type="button" class="btn btn-header-2">Surf Report</button>
+                <button type="button" class="btn btn-header">Contact</button>
+                <button type="button" class="btn btn-header-4">Register</button>
+                <button type="button" class="btn btn-header-4">Login</button>
+            </div>
+        </nav>
+    </header>
+    </div>
+</script> 
+
+{{> headerButtons}}
