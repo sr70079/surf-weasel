@@ -1,6 +1,22 @@
 {{!-- google maps api script tag is async and the script.js script tag depends on it loading first to run so it is deferred  --}}
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXn93WsnSypxsm5kEisCHg_K8ZyNeVf4U&libraries=places&callback=initMap" type="text/javascript"></script>
 <script defer src="/assets/js/script.js"></script>
+
+<navbar class="nav">
+  <div class="container-fluid justify-content-center">
+    <button type="button"
+        class="btn btn-header-1 active"><a href="/dashboard">Home</a></button>
+    <button type="button" class="btn btn-header-2">Surf
+        Report</button>
+    <button type="button"
+        class="btn btn-header"><a href="/contact">Contact</a></button>
+    <button type="button"
+        class="btn btn-header-4"><a href="/signup">Register</a></button>
+    <button type="button"
+        class="btn btn-header-4"><a href="/login">Login</a></button>       
+  </div>
+</navbar>
+
 <div id="main-container" class="container">
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead">Welcome to <strong>Sample App</strong></p>
