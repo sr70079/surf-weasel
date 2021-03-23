@@ -20,13 +20,21 @@ A useful tool to help surfers find the best waves at the best times during the b
 
 ## User Story
 AS A surfer
-I WANT to see the surf report/swell info for a beach nearby
-SO THAT I can find the most gnarly waves without wasting much gas
+I WANT to search for the surf report and live footage of a beach of my choice 
+SO THAT I can find the best waves and save as much time and gas as I can, to get there.
 
+# For developers
+
+clone the source locally:
+
+$ git clone git@github.com:sr70079/surf-weasel.git
 
 ## Installation
 Feel free to download this code to use the programme on your own device.  
-  
+
+## Install project dependencies
+$ npm install
+
 ## Usage
 To run, .  
   
