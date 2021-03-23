@@ -1,13 +1,12 @@
 [![CI](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml/badge.svg)](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml)
 
 # surf-weasel
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml/badge.svg)](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml) [![Build Status](https://travis-ci.com/sr70079/surf-weasel.svg?branch=main)](https://travis-ci.com/sr70079/surf-weasel)
 
-  [![Build Status](https://travis-ci.com/sr70079/surf-weasel.svg?branch=main)](https://travis-ci.com/sr70079/surf-weasel)
+deployed application URL: https://surfweasel.herokuapp.com/
 
 ## Description
-A useful tool to help surfers find the best waves at the best times during the best conditions so they can take their game from "hang ten" to "hang twenty".
-
+This is a useful tool to help find the best wave conditons. This application allows you to search different shore locations of your choice. Surf-Weasel is coupled with a live feed allowing you to view your location of choice to verify that the conditions suit your need. You may view this feed at any time and save your favorite feeds to your local storage. If you are a surfer in need of help finding some of the best waves in your life, don't miss out. Give this application a try!
 
 ## Table of Contents
 * [Usage](#usage)
