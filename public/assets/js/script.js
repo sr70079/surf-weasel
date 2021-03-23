@@ -38,10 +38,31 @@ $(document).ready(function () {
   //   const tideParams = '';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
+  // save searches
+  function saveBeachSearch () {
+    const searchText = $('#searchText').val().trim();
+
+    let storedBeaches = JSON.parse(localStorage.getItem('#storedBeachSearches'));
+
+    if (storedBeaches === null) {
+      storedBeaches = [];
+    } else if (!searchText.value) {
+      return;
+    } else if (storedBeaches.includes(searchText.value)) {
+      return;
+    }
+    searchText.value = [''];
+    storedBeaches.push(searchText.value);
+    localStorage.setItem('#storedBeachSearches', JSON.stringify(storedBeaches));
+  }
+
   // search for city/beach
   $('#search').on('click', function (event) {
     event.preventDefault();
+    $('#main').empty();
+    $('#searchResults').empty();
     const searchText = $('#searchText').val().trim();
+    saveBeachSearch();
     if (searchText.length >= 3) {
       const request = {
         query: searchText,
@@ -104,8 +125,8 @@ $(document).ready(function () {
       // let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
       // let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
 
-      div.append(cityEl, airTempP, humidityP, cloudP, precipP, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
-
+      div.append(cityEl, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
+      // , airTempP, humidityP, cloudP, precipP -----extra weath info
       $('#main').append(div);
     });
   };
@@ -131,7 +152,7 @@ $(document).ready(function () {
       const moonsetP = $('<p>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
       const moonphaseP = $('<p>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
 
-      div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
+      // div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
 
       $('#main').append(div);
     });
