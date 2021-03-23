@@ -38,6 +38,23 @@ module.exports = (passport, db) => {
         }
       })(req, res, next);
     },
+    dashboard: (req, res, next) => {
+      // passport.authenticate('local', (err, user) => {
+      //   if (err) {
+      //     return next(err);
+      //   }
+      //   if (user) {
+      //     req.logIn(user, (err) => {
+      //       if (err) {
+      //         return next(err);
+      //       }
+      //       return res.status(200).json({ loggedIn: true });
+      //     });
+      //   } else {
+      //     res.json({ loggedIn: false, error: 'Can not log in, check your user name and password!' });
+      //   }
+      // })(req, res, next);
+    },
     logout: (req, res, next) => {
       req.logout();
       req.session.destroy((err) => {
@@ -49,18 +66,18 @@ module.exports = (passport, db) => {
       });
     },
     updateUser: (req, res) => {
-      // console.log('req.body:', req.body);
-      db.User.update({
-        email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password
-      }, {
-        where: { id: req.params.id }
-      }).then(result => {
-        // console.log(result);
-        res.json(result);
-      });
+      // // console.log('req.body:', req.body);
+      // db.User.update({
+      //   email: req.body.email,
+      //   firstName: req.body.firstName,
+      //   lastName: req.body.lastName,
+      //   password: req.body.password
+      // }, {
+      //   where: { id: req.params.id }
+      // }).then(result => {
+      //   // console.log(result);
+      //   res.json(result);
+      // });
     },
     confirmAuth: (req, res) => {
       const email = req.body.email;
@@ -79,13 +96,13 @@ module.exports = (passport, db) => {
       });
     },
     deleteUser: (req, res) => {
-      db.User.destroy({
-        where: { id: req.params.id }
-      }).then(() => {
-        res.json(true);
-      }).catch(() => {
-        res.json(false);
-      });
+      // db.User.destroy({
+      //   where: { id: req.params.id }
+      // }).then(() => {
+      //   res.json(true);
+      // }).catch(() => {
+      //   res.json(false);
+      // });
     }
   };
 };

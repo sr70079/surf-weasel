@@ -4,16 +4,18 @@
 
 <navbar class="nav">
   <div class="container-fluid justify-content-center">
-    <button type="button"
-        class="btn btn-header-1 active"><a href="/dashboard">Home</a></button>
-    <button type="button" class="btn btn-header-2">Surf
-        Report</button>
-    <button type="button"
-        class="btn btn-header"><a href="/contact">Contact</a></button>
-    <button type="button"
-        class="btn btn-header-4"><a href="/signup">Register</a></button>
-    <button type="button"
-        class="btn btn-header-4"><a href="/login">Login</a></button>       
+    <div class="row">
+      <button type="button" class="btn btn-header-1 active"><a href="/dashboard">Home</a></button>
+      <button type="button" class="btn btn-header-2">Surf Report</button>
+      <button type="button" class="btn btn-header-4"><a href="/login">Login</a></button>   
+      {{#if isloggedin}}
+        You are logged in as {{user.name}}
+        <a href="/logout"> <button type="btn" class="btn btn-header-4">Logout</button></a>
+
+        
+      {{else}}
+        <p>You need to log in to use this app.</p>  
+    </div>  
   </div>
 </navbar>
 
@@ -22,13 +24,13 @@
     <p class="lead">Welcome to <strong>Sample App</strong></p>
     <hr class="my-4">
     <div>
-      {{#if isloggedin}}
+      {{!-- {{#if isloggedin}}
         You are logged in as {{user.name}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
 
         
       {{else}}
-        <p>You need to log in to use this app.</p>
+        <p>You need to log in to use this app.</p> --}}
         {{!-- <input type="text" id="searchText"> --}}
 
         {{!-- <button class="btn button" id="search">Search</button> --}}
