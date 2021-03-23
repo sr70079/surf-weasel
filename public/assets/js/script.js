@@ -59,10 +59,12 @@ $(document).ready(function () {
   // search for city/beach
   $('#search').on('click', function (event) {
     event.preventDefault();
+
     $('#main').empty();
     $('#searchResults').empty();
-    const searchText = $('#searchText').val().trim();
     saveBeachSearch();
+    const searchText = $('#searchText').val().trim();
+
     if (searchText.length >= 3) {
       const request = {
         query: searchText,
