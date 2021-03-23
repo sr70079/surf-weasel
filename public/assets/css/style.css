@@ -65,6 +65,7 @@ hr {
 
 .form-control {
   border-radius: 18px 18px 18px 18px;
+  height: 30px;
 }
 
 .weasy {
@@ -114,12 +115,12 @@ h2 {
 
 .side-bar {
   background-color: rgba(240, 255, 255, 0.856);
-  box-shadow:
+  /* box-shadow:
   -1px -1px 0 rgba(255, 255, 255, 0),
   1px 1px 0 rgba(0,0,0,.25),
   3px 3px 3px rgba(0,0,0,.25),
   10px 10px 20px rgba(0,0,0,.5),
-  20px 40px 40px rgba(0,0,0,.5); 
+  20px 40px 40px rgba(0,0,0,.5);  */
 }
 
 .btn {
@@ -135,10 +136,14 @@ h2 {
 .btn-primary {
   border-radius: 18px 18px 18px 18px;
   background-color: rgb(40, 40, 43);
-  padding: 4px;
+  padding: 2px;
   justify-content: center;
   width: 80px;
-  height: 50px;
+  height: 32px;
+}
+
+.dashLogin {
+  margin-top: 14px;
 }
 
 .card {
@@ -150,4 +155,15 @@ h2 {
   3px 3px 3px rgba(0,0,0,.25),
   10px 10px 20px rgba(0,0,0,.5),
   20px 40px 40px rgba(0,0,0,.5); 
+}
+
+.dash {
+  background-color: rgba(240, 255, 255, 0.815);
+  /* border-radius: 10px; */
+  /* box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5);  */
 }
