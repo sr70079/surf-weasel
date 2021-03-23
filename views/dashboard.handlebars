@@ -5,78 +5,105 @@
 <navbar class="nav">
   <div class="container-fluid justify-content-center">
     <div class="row">
-      <button type="button" class="btn btn-header-1 active"><a href="/dashboard">Home</a></button>
-      <button type="button" class="btn btn-header-2">Surf Report</button>
-      <button type="button" class="btn btn-header-4"><a href="/login">Login</a></button>   
-      {{#if isloggedin}}
-        You are logged in as {{user.name}}
-        <a href="/logout"> <button type="btn" class="btn btn-header-4">Logout</button></a>
-
+      <div class="col">
+        <button type="button" class="btn btn-primary mt-1"><a href="/dashboard">Home</a></button>
+      </div>
+      <div class="col">
         
-      {{else}}
-        <p>You need to log in to use this app.</p>  
+      </div>
+      <div class="col">
+        <div class="row">
+        {{#if isloggedin}}
+          <p class="ml-5 mt-3 mr-2">You are logged in as {{user.name}}</p>
+          <a href="/logout"> <button type="btn" class="btn btn-primary mt-1">Logout</button></a>
+        {{else}}
+          <p class="ml-5 mt-3">You need to log in to use this app.</p> 
+          <button type="button" class="btn btn-primary ml-2 mt-1"><a href="/login">Login</a></button> 
+        </div>
+  
+      </div>
     </div>  
   </div>
 </navbar>
 
-<div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Sample App</strong></p>
-    <hr class="my-4">
-    <div>
-      {{!-- {{#if isloggedin}}
-        You are logged in as {{user.name}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+<div class="container-fluid">
+    <div class="row min-vh-100">
+      {{!-- sidebar --}}
+        <aside class="col-sm-3 colColor">
+            <h5 class="mt-3 mb-3">Search for your Beach:</h3>
+            <form class="form-inline pl-3 pr-2">
+                <input id="cityNameInput" class="form-control w-50 mt-2 mr-2" type="search" placeholder="Search" aria-label="Search">
+                <button id="search" class="btn btn-outline-success mt-sm-2 my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button id="clear" class="btn btn-sm btn-links ml-3 mt-sm-2 my-2 my-sm-0">Clear History</button>
+            <h5 class="mt-1 mb-3">Beach Search History:</h3>  
+            <div id="cityHistory">
 
-        
-      {{else}}
-        <p>You need to log in to use this app.</p> --}}
-        {{!-- <input type="text" id="searchText"> --}}
-
-        {{!-- <button class="btn button" id="search">Search</button> --}}
-        {{!-- <div>
-          <ul id="searchResults"></ul>
-        </div> --}}
-        
-        <div class="container-fluid">
-        <div class="row content search">
-          <div class="col-sm-3">
-            <h4>Search for a City:</h4>
-            <input type="text" id="searchText">
-            {{!-- <input id="city-search" type="text" placeholder="Search.." name="search"> --}}
-            {{!-- <button id="search"><i class="fas fa-search"></i></button> --}}
-
-               {{!-- <button class="btn button" id="search">Search</button> --}}
-        <div>
-          <ul id="searchResults"></ul>
-        </div>
-
-
-        <div class="container"
-
-            <div id="city-storage"></div>
-        </div>
-         
-          <br>   
-            <div class="col-sm-9">
-                    <div class="row">
-                    <h2>Current Conditions:</h2>
-                    <div class ="row" id="current-condtions">
-                        
-                    </div>
-                </div>
-                <div id="main" class="well">
-                     
-                </div>
             </div>
-        </div>
-    </div>>
-        <div id="map" style="visibility:hidden;"></div>
+        </aside>
+        {{!-- dashboard --}}
+        <article id="displayInfo" class="col card">
+          <div id="main-container" class="container">
+            <div class="jumbotron text-center header-wrap" align="center">
+              <p class="lead">Welcome to <strong>Sample App</strong></p>
+              <hr class="my-4">
+              <div>
+                {{!-- {{#if isloggedin}}
+                  You are logged in as {{user.name}}
+                  <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
 
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
+                  
+                {{else}}
+                  <p>You need to log in to use this app.</p> --}}
+                  {{!-- <input type="text" id="searchText"> --}}
+
+                  {{!-- <button class="btn button" id="search">Search</button> --}}
+                  {{!-- <div>
+                    <ul id="searchResults"></ul>
+                  </div> --}}
+                  
+                  <div class="container-fluid">
+                  <div class="row content search">
+                    <div class="col-sm-3">
+                      <h4>Search for a City:</h4>
+                      <input type="text" id="searchText">
+                      {{!-- <input id="city-search" type="text" placeholder="Search.." name="search"> --}}
+                      {{!-- <button id="search"><i class="fas fa-search"></i></button> --}}
+
+                        {{!-- <button class="btn button" id="search">Search</button> --}}
+                  <div>
+                    <ul id="searchResults"></ul>
+                  </div>
+
+
+                  <div class="container"
+
+                      <div id="city-storage"></div>
+                  </div>
+                  
+                    <br>   
+                      <div class="col-sm-9">
+                              <div class="row">
+                              <h2>Current Conditions:</h2>
+                              <div class ="row" id="current-condtions">
+                                  
+                              </div>
+                          </div>
+                          <div id="main" class="well">
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>>
+                  <div id="map" style="visibility:hidden;"></div>
+
+                {{/if}}
+                <h5 id="login-err-msg"></h5>
+              </div>
+            </div>
+          </div>
+        </article>
     </div>
-  </div>
 </div>
 
 {{> modal/login-block}}
