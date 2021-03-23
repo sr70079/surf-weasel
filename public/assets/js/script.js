@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = 'f1c28e16-8b74-11eb-b62d-0242ac130002-f1c28e8e-8b74-11eb-b62d-0242ac130002';
+  const APIKey = '10cfac86-8c28-11eb-a9f7-0242ac130002-10cfad12-8c28-11eb-a9f7-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
