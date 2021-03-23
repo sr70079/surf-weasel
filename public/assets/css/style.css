@@ -3,6 +3,7 @@ body {
   background-size: cover;
   height:100%;
   background-image: url("../images/surfer.png");
+  background-attachment: fixed;
 }
 
 .jumbotron {
@@ -158,8 +159,8 @@ h2 {
 }
 
 .dash {
-  background-color: rgba(240, 255, 255, 0.815);
-  /* border-radius: 10px; */
+  background-color: rgba(240, 255, 255, 0.877);
+  border-radius: 5px;
   /* box-shadow:
   -1px -1px 0 rgba(255, 255, 255, 0),
   1px 1px 0 rgba(0,0,0,.25),
