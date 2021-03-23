@@ -7,12 +7,14 @@
     <hr class="my-4">
     <div>
       {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
+        You are logged in as {{user.name}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+
         
       {{else}}
         <p>You need to log in to use this app.</p>
         {{!-- <input type="text" id="searchText"> --}}
+
         {{!-- <button class="btn button" id="search">Search</button> --}}
         {{!-- <div>
           <ul id="searchResults"></ul>
@@ -30,6 +32,7 @@
         <div>
           <ul id="searchResults"></ul>
         </div>
+
         <div class="c
             <div id="city-storage"></div>
           </div>
@@ -57,6 +60,7 @@
 
     </div>
         <div id="map" style="visibility:hidden;"></div>
+
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

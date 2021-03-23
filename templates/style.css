@@ -1,0 +1,71 @@
+html,
+body {
+  background-image: url("css/images/ncbeach.jpg");
+  padding-right: 0px;
+  /* background-color: rgb(209, 207, 207); */
+}
+
+nav {
+  position: static;
+  height: 90px;
+}
+
+.navbar-dark {
+  padding-bottom: 4px;
+}
+
+.navbar-brand {
+  padding-top: 20px;
+  padding-right: 200px;
+  font-family: "Bangers", cursive;
+  color: rgb(106, 134, 158);
+  font-size: 50px;
+}
+
+.btn {
+  color: rgb(230, 120, 120);
+  padding-top: 20px;
+  border: none;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn-header-1 {
+  align-items: right;
+}
+
+.btn-header-4 {
+  margin: 0;
+  padding-left: 100px;
+  content: right;
+  align-items: center;
+}
+
+.btn-header-5 {
+  padding: 0;
+}
+
+section { 
+  width: 100%;
+  border: 0px solid red;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.btn-primary:hover {
+  color: white;
+}
+
+img {
+  border-top:10px solid rgb(49, 49, 196);
+  width: 100%;
+  
+
+}
+
+footer {
+  background: rgb(19, 18, 18);
+  font-size: 16px;
+}

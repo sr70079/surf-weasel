@@ -1,0 +1,133 @@
+/* registration html page */
+
+
+html,
+body {
+  background: url("images/beachpic.jpg"); 
+  padding-right: 0px;
+  /* background-color: rgb(209, 207, 207); */
+}
+body {
+  background-image: cover;
+}
+nav {
+  position: static;
+  width: 40%;
+  height: 80px;
+  border-bottom: 6px solid rgb(112, 112, 57);
+}
+
+/* .navbar-dark , .navbar-brand {
+  color:  rgb(106, 134, 158);
+
+} */
+
+.navbar-brand {
+  padding-top: 10px;
+  padding-right: 200px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  justify-content: center;
+  font-family: "Bangers", cursive;
+  color:  rgb(106, 134, 158) !important;
+  font-size: 50px;
+  width: 33%;
+}
+
+.btn {
+  color: rgb(230, 120, 120);
+  padding-top: 20px;
+  border: none;
+}
+
+.btn:hover {
+  color: white;
+}
+
+/* .btn-header-1 {
+  align-items: right;
+} */
+
+/* .btn-header-4, .btn-header-5 {
+  margin: 0;
+  padding-left: 100px;
+  content: right;
+  align-items: center;
+} */
+
+/* section { 
+  background: url("images/beachpic.jpg");
+} */
+
+.media-body {
+  width: 100%;
+  padding: 0;
+  /* border:3px solid blue; */
+  background: transparent;
+
+}
+
+.card, m-5 {
+  width: 100%;
+  display: cover;
+  margin-top: 0;
+  padding: 0;
+  background-color: transparent;
+  border: hidden;
+  /* border-right: 250px solid black;
+  border-left: 250px solid black; */
+  
+}
+
+.email, .firstName, .lastName, .pswdOne, .pswdTwo {
+  font-size: 14px;
+  padding-left: 25px;
+  font: 50;
+  border-radius: 18px 18px 18px 18px;
+  height: 20px;
+  border:hidden
+}
+.col { 
+  width: 1px;
+}
+.col-5{
+  width: 100%;
+  overflow: visible;
+}
+.container-5 {
+  padding-left: 200px;
+}
+
+#signup-button {
+  justify-items: right;
+}
+
+.btn-primary-2 {
+  border-radius: 18px 18px 18px 18px;
+  background-color: rgb(40, 40, 43);
+  padding: 4px;
+  justify-content: center;
+  width: 200px;
+  height: auto;
+}
+
+p {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 18px;
+  font-weight: 1000;
+  font-style: bold;
+}
+
+.form-control input {
+  color: rgb(148, 148, 148);
+}
+
+.input-group-1, .container-1 {
+  border-radius: 18px 18px 18px 18px;
+  align-items: left;
+}
+
+footer {
+  background-color: transparent !important;
+  font-size: 16px;
+}
