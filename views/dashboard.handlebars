@@ -9,14 +9,58 @@
       {{#if isloggedin}}
         You are logged in as {{user.name}}
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
-                <input type="text" id="searchText">
+
+        
+      {{else}}
+        <p>You need to log in to use this app.</p>
+        {{!-- <input type="text" id="searchText"> --}}
+
         {{!-- <button class="btn button" id="search">Search</button> --}}
+        {{!-- <div>
+          <ul id="searchResults"></ul>
+        </div> --}}
+        
+        <div class="container-fluid">
+        <div class="row content search">
+          <div class="col-sm-3">
+            <h4>Search for a City:</h4>
+            <input type="text" id="searchText">
+            {{!-- <input id="city-search" type="text" placeholder="Search.." name="search"> --}}
+            {{!-- <button id="search"><i class="fas fa-search"></i></button> --}}
+
+               {{!-- <button class="btn button" id="search">Search</button> --}}
         <div>
           <ul id="searchResults"></ul>
         </div>
-        <div id="map"></div>
-      {{else}}
-        <p>You need to log in to use this app.</p>
+
+        <div class="c
+            <div id="city-storage"></div>
+          </div>
+         
+          <br>
+          
+            <div class="col-sm-9">
+                    <div class="row">
+                    <h2>Current Conditions:</h2>
+                    <div class ="row" id="current-condtions">
+                        
+                    </div>
+
+                </div>
+                <div id="main" class="well">
+                  
+                    
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+        <div id="map" style="visibility:hidden;"></div>
+
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

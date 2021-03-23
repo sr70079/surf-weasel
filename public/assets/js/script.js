@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = '8e9f917c-8817-11eb-a9f7-0242ac130002-8e9f921c-8817-11eb-a9f7-0242ac130002';
+  const APIKey = 'dc97fb66-8b60-11eb-b62d-0242ac130002-dc97fbde-8b60-11eb-b62d-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -34,13 +34,11 @@ $(document).ready(function () {
   // astronomy
   const astronomyURL = baseQueryURL + 'astronomy/point';
 
-  const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed';
-  const tideParams = 'currentSpeed,currentDirection';
-  const marineParams = 'waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
+  const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed,currentSpeed,currentDirection,waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
+  //   const tideParams = '';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
   // search for city/beach
-  const citiesSearched = [];
   $('#searchText').on('change', function (event) {
     const searchText = $('#searchText').val();
     if (searchText.length >= 3) {
@@ -57,8 +55,8 @@ $(document).ready(function () {
             marker = createMarker(place);
             bounds.extend(marker.getPosition());
             getWeatherInfo(place);
-            getTideInfo(place);
-            getMarineInfo(place);
+            // getTideInfo(place);
+            // getMarineInfo(place);
             getAstronmyInfo(place);
           });
           map.fitBounds(bounds);
@@ -86,38 +84,69 @@ $(document).ready(function () {
         'Authorization': APIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
-      console.log(jsonData);
+      const div = $('<div>');
+      const cityEl = $('<h3>').text(place.name + '(' + new Date().toLocaleDateString('en-US') + ')');
+      const airTempP = $('<p>').text('Temperature: ' + jsonData.hours[0].airTemperature.noaa);
+      const humidityP = $('<p>').text('Humidity: ' + jsonData.hours[0].humidity.noaa);
+      const cloudP = $('<p>').text('Cloud Coverage: ' + jsonData.hours[0].cloudCover.noaa);
+      const precipP = $('<p>').text('Precipitation: ' + jsonData.hours[0].precipitation.noaa);
+      const windP = $('<p>').text('Wind Speed: ' + jsonData.hours[0].windSpeed.noaa);
+      const currSpeedsP = $('<p>').text('Current Speeds: ' + jsonData.hours[0].currentSpeed.meto);
+      const currDirectionP = $('<p>').text('Current Direction: ' + jsonData.hours[0].currentDirection.meto);
+
+      const waveHeightP = $('<p>').text('Wave Height: ' + jsonData.hours[0].waveHeight.noaa);
+      const swellHeightP = $('<p>').text('Swell Height: ' + jsonData.hours[0].swellHeight.noaa);
+      const swellDirectionP = $('<p>').text('Swell Direction: ' + jsonData.hours[0].swellDirection.noaa);
+      const swellPeriodP = $('<p>').text('Swell Period: ' + jsonData.hours[0].swellPeriod.noaa);
+      const waterTempP = $('<p>').text('Water Temperature: ' + jsonData.hours[0].waterTemperature.noaa);
+
+      // let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
+      // let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
+
+      div.append(cityEl, airTempP, humidityP, cloudP, precipP, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
+
+      $('#main').append(div);
     });
-  }
-  function getTideInfo (place) {
-    fetch(`${weatherURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${tideParams}`, {
-      headers: {
-        'Authorization': APIKey
-      }
-    }).then((response) => response.json()).then((jsonData) => {
-      console.log(jsonData);
-    });
-  }
-  function getMarineInfo (place) {
-    fetch(`${weatherURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${marineParams}`, {
-      headers: {
-        'Authorization': APIKey
-      }
-    }).then((response) => response.json()).then((jsonData) => {
-      console.log(jsonData);
-    });
-  }
+  };
+  //   function getTideInfo (place) {
+  //     fetch(`${weatherURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${tideParams}`, {
+  //       headers: {
+  //         'Authorization': APIKey
+  //       }
+  //     }).then((response) => response.json()).then((jsonData) => {
+
+  //     });
+  //   };
   function getAstronmyInfo (place) {
     fetch(`${astronomyURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${astronomyParams}`, {
       headers: {
         'Authorization': APIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
-      console.log(jsonData);
+      const div = $('<div>');
+      const sunriseP = $('<p>').text('Sunrise: ' + getDateTimeFormat(jsonData.data[0].sunrise));
+      const sunsetP = $('<p>').text('Sunset: ' + getDateTimeFormat(jsonData.data[0].sunset));
+      const moonriseP = $('<p>').text('Moonrise: ' + getDateTimeFormat(jsonData.data[0].moonrise));
+      const moonsetP = $('<p>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
+      const moonphaseP = $('<p>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
+
+      div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
+
+      $('#main').append(div);
     });
-  }
+  };
 });
-const time = undefined;
+function getDateTimeFormat (date) {
+  const datetime = new Date(date);
+  return new Intl.DateTimeFormat('default', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  }).format(datetime);
+};
+
+// let createCity = function(response, cityName) {
+// };
 
 // tide info
 const extremeTide = undefined;// look at example on api need lat and lng with params
