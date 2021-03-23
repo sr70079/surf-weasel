@@ -39,8 +39,9 @@ $(document).ready(function () {
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
   // search for city/beach
-  $('#searchText').on('change', function (event) {
-    const searchText = $('#searchText').val();
+  $('#search').on('click', function (event) {
+    event.preventDefault();
+    const searchText = $('#searchText').val().trim();
     if (searchText.length >= 3) {
       const request = {
         query: searchText,
