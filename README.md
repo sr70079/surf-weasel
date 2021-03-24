@@ -1,5 +1,3 @@
-[![CI](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml/badge.svg)](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml)
-
 # surf-weasel
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml/badge.svg)](https://github.com/sr70079/surf-weasel/actions/workflows/main.yml) [![Build Status](https://travis-ci.com/sr70079/surf-weasel.svg?branch=main)](https://travis-ci.com/sr70079/surf-weasel)
 
