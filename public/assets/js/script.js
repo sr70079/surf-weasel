@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = 'dc97fb66-8b60-11eb-b62d-0242ac130002-dc97fbde-8b60-11eb-b62d-0242ac130002';
+  const APIKey = 'f1c28e16-8b74-11eb-b62d-0242ac130002-f1c28e8e-8b74-11eb-b62d-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -79,8 +79,8 @@ $(document).ready(function () {
       console.log(response);
     });
 
-    $('#main').empty();
-    $('#searchResults').empty();
+    // $('#main').empty();
+    // $('#searchResults').empty();
     saveBeachSearch();
 
     if (searchText.length >= 3) {
@@ -125,28 +125,27 @@ $(document).ready(function () {
         'Authorization': APIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
-      const div = $('<div>');
       const cityEl = $('<h3>').text(place.name + '(' + new Date().toLocaleDateString('en-US') + ')');
-      const airTempP = $('<p>').text('Temperature: ' + jsonData.hours[0].airTemperature.noaa);
-      const humidityP = $('<p>').text('Humidity: ' + jsonData.hours[0].humidity.noaa);
-      const cloudP = $('<p>').text('Cloud Coverage: ' + jsonData.hours[0].cloudCover.noaa);
-      const precipP = $('<p>').text('Precipitation: ' + jsonData.hours[0].precipitation.noaa);
-      const windP = $('<p>').text('Wind Speed: ' + jsonData.hours[0].windSpeed.noaa);
-      const currSpeedsP = $('<p>').text('Current Speeds: ' + jsonData.hours[0].currentSpeed.meto);
-      const currDirectionP = $('<p>').text('Current Direction: ' + jsonData.hours[0].currentDirection.meto);
+      const airTempP = $('<li>').text('Temperature: ' + jsonData.hours[0].airTemperature.noaa);
+      const humidityP = $('<li>').text('Humidity: ' + jsonData.hours[0].humidity.noaa);
+      const cloudP = $('<li>').text('Cloud Coverage: ' + jsonData.hours[0].cloudCover.noaa);
+      const precipP = $('<li>').text('Precipitation: ' + jsonData.hours[0].precipitation.noaa);
+      const windP = $('<li>').text('Wind Speed: ' + jsonData.hours[0].windSpeed.noaa);
+      const currSpeedsP = $('<li>').text('Current Speeds: ' + jsonData.hours[0].currentSpeed.meto);
+      const currDirectionP = $('<li>').text('Current Direction: ' + jsonData.hours[0].currentDirection.meto);
 
-      const waveHeightP = $('<p>').text('Wave Height: ' + jsonData.hours[0].waveHeight.noaa);
-      const swellHeightP = $('<p>').text('Swell Height: ' + jsonData.hours[0].swellHeight.noaa);
-      const swellDirectionP = $('<p>').text('Swell Direction: ' + jsonData.hours[0].swellDirection.noaa);
-      const swellPeriodP = $('<p>').text('Swell Period: ' + jsonData.hours[0].swellPeriod.noaa);
-      const waterTempP = $('<p>').text('Water Temperature: ' + jsonData.hours[0].waterTemperature.noaa);
+      const waveHeightP = $('<li>').text('Wave Height: ' + jsonData.hours[0].waveHeight.noaa);
+      const swellHeightP = $('<li>').text('Swell Height: ' + jsonData.hours[0].swellHeight.noaa);
+      const swellDirectionP = $('<li>').text('Swell Direction: ' + jsonData.hours[0].swellDirection.noaa);
+      const swellPeriodP = $('<li>').text('Swell Period: ' + jsonData.hours[0].swellPeriod.noaa);
+      const waterTempP = $('<li>').text('Water Temperature: ' + jsonData.hours[0].waterTemperature.noaa);
 
       // let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
       // let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
 
-      div.append(cityEl, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
-      // , airTempP, humidityP, cloudP, precipP -----extra weath info
-      $('#main').append(div);
+      $('#cityName').append(cityEl);
+      $('#weather').append(airTempP, humidityP, cloudP, precipP, windP);
+      $('#marine').append(waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP, currSpeedsP, currDirectionP);
     });
   };
   function getTideInfo (place) {
@@ -156,14 +155,12 @@ $(document).ready(function () {
       }
     }).then((response) => response.json()).then((jsonData) => {
       console.log(jsonData);
-      const div = $('<div>');
-      const firstLowP = $('<p>').text('First Low Tide: ' + getDateTimeFormat(jsonData.data[0].time));
-      const firstHighP = $('<p>').text('First High Tide: ' + getDateTimeFormat(jsonData.data[1].time));
-      const secondLowP = $('<p>').text('Second Low Tide: ' + getDateTimeFormat(jsonData.data[2].time));
-      const secondHighP = $('<p>').text('Second High Tide: ' + getDateTimeFormat(jsonData.data[3].time));
+      const firstLowP = $('<li>').text('First Low Tide: ' + getDateTimeFormat(jsonData.data[0].time));
+      const firstHighP = $('<li>').text('First High Tide: ' + getDateTimeFormat(jsonData.data[1].time));
+      const secondLowP = $('<li>').text('Second Low Tide: ' + getDateTimeFormat(jsonData.data[2].time));
+      const secondHighP = $('<li>').text('Second High Tide: ' + getDateTimeFormat(jsonData.data[3].time));
 
-      div.append(firstLowP, secondLowP, firstHighP, secondHighP);
-      console.log(firstLowP, secondLowP, firstHighP, secondHighP);
+      $('#tide').append(firstLowP, secondLowP, firstHighP, secondHighP);
     });
   };
   function getAstronmyInfo (place) {
@@ -172,16 +169,13 @@ $(document).ready(function () {
         'Authorization': APIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
-      const div = $('<div>');
-      const sunriseP = $('<p>').text('Sunrise: ' + getDateTimeFormat(jsonData.data[0].sunrise));
-      const sunsetP = $('<p>').text('Sunset: ' + getDateTimeFormat(jsonData.data[0].sunset));
-      const moonriseP = $('<p>').text('Moonrise: ' + getDateTimeFormat(jsonData.data[0].moonrise));
-      const moonsetP = $('<p>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
-      const moonphaseP = $('<p>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
+      const sunriseP = $('<li>').text('Sunrise: ' + getDateTimeFormat(jsonData.data[0].sunrise));
+      const sunsetP = $('<li>').text('Sunset: ' + getDateTimeFormat(jsonData.data[0].sunset));
+      const moonriseP = $('<li>').text('Moonrise: ' + getDateTimeFormat(jsonData.data[0].moonrise));
+      const moonsetP = $('<li>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
+      const moonphaseP = $('<li>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
 
-      // div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
-
-      $('#main').append(div);
+      $('#astronomy').append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
     });
   };
 });
