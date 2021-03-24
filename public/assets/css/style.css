@@ -149,7 +149,9 @@ h2 {
   background-color: rgb(40, 40, 43);
   padding: 2px;
   justify-content: center;
-  width: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: auto;
   height: 32px;
 }
 
