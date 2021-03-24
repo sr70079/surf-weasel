@@ -35,53 +35,75 @@
 </navbar>
 
 <div class="container-fluid">
-    <div class="row min-vh-100">
-      {{!-- sidebar --}}
-        <aside class="col-sm-2 side-bar">
-
-            <h5 class="mt-4 mb-3">Favorite Beach:</h5>
-            
-            <div id="favBeach">
-              {{!-- append favorite beach of user here (after login) --}}
-            </div>
-            <h5 class="mt-1">Previous Searches:</h5>
-            <button id="clear" class="btn btn-sm btn-links">Clear Search History</button>  
-
-            <div id="beachHistory">
-              {{!-- append beach search istory here --}}
-            </div>
-            
-        </aside>
-        {{!-- dashboard --}}
-        <article id="displayInfo" class="col">
-          <div id="main-container" class="dash">
-            <div class="jumbotron text-center header-wrap" align="center">
-              
+  <div class="row min-vh-100">
+    {{!-- sidebar --}}
+      <aside class="col-sm-2 side-bar">
+        <h5 class="mt-4 mb-3">Favorite Beach:</h5>        
+        <div id="favBeach">
+          {{!-- append favorite beach of user here (after login) --}}
+        </div>
+        <h5 class="mt-1">Previous Searches:</h5>
+        <button id="clear" class="btn btn-sm btn-links">Clear Search History</button>  
+        <div id="beachHistory">
+          {{!-- append beach search istory here --}}
+        </div>          
+      </aside>
+      {{!-- dashboard --}}
+      <article id="displayInfo" class="col">
+        <div id="main-container" class="dash">
+          <div class="jumbotron text-center header-wrap" align="center">            
             <div>
               {{#if isloggedin}}
                 <p class="lead">Welcome {{user.name}}</p>
               {{else}}
                 <h3 class="lead">Welcome To Surfweasel</h3>
-         
+          
               {{/if}}
+            </div>          
+          <div id="cityName"></div>
+
+          <div id="city-storage"></div>
+
+          {{!-- <h2>Current Conditions:</h2>   --}}
+
+          <div class ="row" id="current-condtions"></div>
+
+          <div id="main" class="well">
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <h2>Weather Information</h2>
+                <ul id="weather"></ul>
+              </div>
+
+              <div class="col-sm-6">
+                <h2>Tide Information</h2>                
+                <ul id="tide"></ul>                
+              </div>
+
             </div>
-            
-            <ul id="searchResults"></ul>
 
-            <div id="city-storage"></div>
+            <div class="row">
+              <div class="col-sm-6">
+                <h2>Marine Information</h2>                
+                <ul id="marine"></ul>                
+              </div>
 
-            {{!-- <h2>Current Conditions:</h2>   --}}
-
-            <div class ="row" id="current-condtions"></div>
-
-            <div id="main" class="well"></div>
-
-            <div id="map" style="visibility:hidden;"></div>
-
-                <h5 id="login-err-msg"></h5>
+              <div class="col-sm-6">
+                <h2>Astronomy Information</h2>                
+                <ul id="astronomy"></ul>                
               </div>
             </div>
+
           </div>
-        </article>
-    </div>
+
+          <div id="map" style="visibility:hidden;"></div>
+
+              <h5 id="login-err-msg"></h5>
+            </div>
+          </div>
+        </div>
+      </article>
+  </div>
 </div>
