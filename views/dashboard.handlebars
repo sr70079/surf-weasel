@@ -14,7 +14,10 @@
           <form class="form-inline pl-3 pr-2">
               <input id="searchText" name="fav_beach" class="form-control w-50 mr-2" type="text" placeholder="Search" aria-label="Search">
               <button id="search" class="btn btn-primary" type="submit">Search</button>
-              {{!-- need to fix search button errors (only loads data of previously typed cities) --}}
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="saveFavBeach">
+                <label class="form-check-label" for="inlineCheckbox1">Save As favorite beach</label>
+              </div>
           </form>
         </div>
 
