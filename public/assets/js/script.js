@@ -38,7 +38,18 @@ $(document).ready(function () {
   //   const tideParams = '';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
-  // save searches
+  // load fav_beach
+  function loadFavBeach () {
+    $.ajax({
+      url: '/api/dashboard',
+      method: 'GET'
+    }).then(response => {
+      console.log(response);
+    });
+  }
+
+  loadFavBeach();
+  // save searches -----need help here
   function saveBeachSearch () {
     const searchText = $('#searchText').val().trim();
 
@@ -46,24 +57,35 @@ $(document).ready(function () {
 
     if (storedBeaches === null) {
       storedBeaches = [];
-    } else if (!searchText.value) {
+    } else if (!searchText) {
       return;
-    } else if (storedBeaches.includes(searchText.value)) {
+    } else if (storedBeaches.includes(searchText)) {
       return;
     }
-    searchText.value = [''];
-    storedBeaches.push(searchText.value);
+    storedBeaches.push(searchText);
     localStorage.setItem('#storedBeachSearches', JSON.stringify(storedBeaches));
+    searchText.value = [''];
   }
 
   // search for city/beach
   $('#search').on('click', function (event) {
     event.preventDefault();
+    const searchText = $('#searchText').val().trim();
+    const favBeach = {
+      fav_beach: searchText
+    };
+    console.log(searchText);
+    $.ajax({
+      url: '/api/dashboard',
+      method: 'POST',
+      data: favBeach
+    }).then(response => {
+      console.log(response);
+    });
 
     $('#main').empty();
     $('#searchResults').empty();
     saveBeachSearch();
-    const searchText = $('#searchText').val().trim();
 
     if (searchText.length >= 3) {
       const request = {

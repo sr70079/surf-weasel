@@ -38,23 +38,35 @@ module.exports = (passport, db) => {
         }
       })(req, res, next);
     },
-    dashboard: (req, res, next) => {
-      // passport.authenticate('local', (err, user) => {
-      //   if (err) {
-      //     return next(err);
-      //   }
-      //   if (user) {
-      //     req.logIn(user, (err) => {
-      //       if (err) {
-      //         return next(err);
-      //       }
-      //       return res.status(200).json({ loggedIn: true });
-      //     });
-      //   } else {
-      //     res.json({ loggedIn: false, error: 'Can not log in, check your user name and password!' });
-      //   }
-      // })(req, res, next);
+    getFavBeach: (req, res) => {
+      db.User.findOne({ where: { id: req.session.passport.user.id } }).then(result => {
+        res.json(result);
+      });
     },
+    saveFavBeach: (req, res) => {
+      console.log(req.body);
+      db.User.update({ fav_beach: req.body },
+        { where: { id: req.session.passport.user.id } }).then(result => {
+        res.json(result);
+      });
+    },
+    // dashboard: (req, res, next) => {
+    //   // passport.authenticate('local', (err, user) => {
+    //   //   if (err) {
+    //   //     return next(err);
+    //   //   }
+    //   //   if (user) {
+    //   //     req.logIn(user, (err) => {
+    //   //       if (err) {
+    //   //         return next(err);
+    //   //       }
+    //   //       return res.status(200).json({ loggedIn: true });
+    //   //     });
+    //   //   } else {
+    //   //     res.json({ loggedIn: false, error: 'Can not log in, check your user name and password!' });
+    //   //   }
+    //   // })(req, res, next);
+    // }
     logout: (req, res, next) => {
       req.logout();
       req.session.destroy((err) => {
