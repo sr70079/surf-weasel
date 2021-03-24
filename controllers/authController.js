@@ -45,7 +45,7 @@ module.exports = (passport, db) => {
     },
     saveFavBeach: (req, res) => {
       console.log(req.body);
-      db.User.update({ fav_beach: req.body },
+      db.User.update(req.body,
         { where: { id: req.session.passport.user.id } }).then(result => {
         res.json(result);
       });

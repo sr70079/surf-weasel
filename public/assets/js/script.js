@@ -21,8 +21,8 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = process.env.API_KEY;
-  console.log(apiKey);
+  // const APIKey = process.env.API_KEY;
+  // console.log(apiKey);
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -39,6 +39,25 @@ $(document).ready(function () {
   const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed,currentSpeed,currentDirection,waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
+  $('#saveFavBeach').change(function (event) {
+    event.preventDefault();
+    const searchText = $('#searchText').val();
+    if (this.checked) {
+      console.log('checked?');
+      const favBeach = {
+        fav_beach: searchText
+      };
+      console.log(favBeach);
+      $.ajax({
+        url: '/api/dashboard',
+        method: 'POST',
+        data: favBeach
+      }).then(response => {
+        console.log(response);
+      });
+    };
+  });
+
   // load fav_beach
   function loadFavBeach () {
     $.ajax({
@@ -46,6 +65,13 @@ $(document).ready(function () {
       method: 'GET'
     }).then(response => {
       console.log(response);
+      if (response.fav_beach) {
+        favBeachButton = $('<button>');
+        favBeachButton.text(response.fav_beach);
+        favBeachButton.attr('value', response.fav_beach);
+        favBeachButton.attr('id', 'favButton');
+        $('#favBeach').append(favBeachButton);
+      }
     });
   }
 
