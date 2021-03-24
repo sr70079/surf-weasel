@@ -21,8 +21,8 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  // const APIKey = process.env.API_KEY;
-  // console.log(apiKey);
+  const APIKey = 'c4e703ea-8ce6-11eb-8191-0242ac130002-c4e70458-8ce6-11eb-8191-0242ac130002';
+  console.log(APIKey);
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -68,6 +68,7 @@ $(document).ready(function () {
       if (response.fav_beach) {
         favBeachButton = $('<button>');
         favBeachButton.text(response.fav_beach);
+        favBeachButton.attr('class', 'btn btn-primary');
         favBeachButton.attr('value', response.fav_beach);
         favBeachButton.attr('id', 'favButton');
         $('#favBeach').append(favBeachButton);
@@ -76,7 +77,12 @@ $(document).ready(function () {
   }
 
   loadFavBeach();
-  // save searches -----need help here
+
+  $('#favButton').on('click', function () {
+    console.log('clicking');
+  });
+
+  // save searches
   function saveBeachSearch () {
     const searchText = $('#searchText').val().trim();
 
@@ -98,18 +104,6 @@ $(document).ready(function () {
   $('#search').on('click', function (event) {
     event.preventDefault();
     const searchText = $('#searchText').val().trim();
-    const favBeach = {
-      fav_beach: searchText
-    };
-    console.log(searchText);
-    $.ajax({
-      url: '/api/dashboard',
-      method: 'POST',
-      data: favBeach
-    }).then(response => {
-      console.log(response);
-    });
-
     // $('#main').empty();
     // $('#searchResults').empty();
     saveBeachSearch();
