@@ -79,8 +79,8 @@ $(document).ready(function () {
       console.log(response);
     });
 
-    //$('#main').empty();
-    //$('#searchResults').empty();
+    // $('#main').empty();
+    // $('#searchResults').empty();
     saveBeachSearch();
 
     if (searchText.length >= 3) {
