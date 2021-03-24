@@ -59,6 +59,10 @@ hr {
   color: #444;
 }
 
+#main ul {
+  list-style-type: none;
+}
+
 #map {
   height: 500px;
   width: 500px;
