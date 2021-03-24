@@ -53,7 +53,7 @@ module.exports = (db) => {
       };
       res.render('dashboard', user);
     } else {
-      res.render('dashboard');
+      res.redirect('/');
     }
   });
 
