@@ -8,6 +8,7 @@ This is a useful tool to help find the best wave conditons. This application all
 
 ## Table of Contents
 * [User Story](#userstory)
+* [Future Development](#futuredevelopment)
 * [Credits](#credits)
 * [Contributors](#contributors)
 * [License](#License)
@@ -16,6 +17,9 @@ This is a useful tool to help find the best wave conditons. This application all
 AS A surfer
 I WANT to search for the surf report and live footage of a beach of my choice 
 SO THAT I can find the best waves and save as much time and gas as I can, to get there.
+
+# Future Development
+We have installed a dependency called PopMotion which we ran out of time to try to implement, but we intend to add it in future.  
 
 # For developers
 
