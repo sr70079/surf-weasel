@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = 'f1c28e16-8b74-11eb-b62d-0242ac130002-f1c28e8e-8b74-11eb-b62d-0242ac130002';
+  const APIKey = '10cfac86-8c28-11eb-a9f7-0242ac130002-10cfad12-8c28-11eb-a9f7-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -38,9 +38,33 @@ $(document).ready(function () {
   //   const tideParams = '';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
+  // save searches
+  function saveBeachSearch () {
+    const searchText = $('#searchText').val().trim();
+
+    let storedBeaches = JSON.parse(localStorage.getItem('#storedBeachSearches'));
+
+    if (storedBeaches === null) {
+      storedBeaches = [];
+    } else if (!searchText.value) {
+      return;
+    } else if (storedBeaches.includes(searchText.value)) {
+      return;
+    }
+    searchText.value = [''];
+    storedBeaches.push(searchText.value);
+    localStorage.setItem('#storedBeachSearches', JSON.stringify(storedBeaches));
+  }
+
   // search for city/beach
-  $('#searchText').on('change', function (event) {
-    const searchText = $('#searchText').val();
+  $('#search').on('click', function (event) {
+    event.preventDefault();
+
+    $('#main').empty();
+    $('#searchResults').empty();
+    saveBeachSearch();
+    const searchText = $('#searchText').val().trim();
+
     if (searchText.length >= 3) {
       const request = {
         query: searchText,
@@ -103,8 +127,8 @@ $(document).ready(function () {
       // let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
       // let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
 
-      div.append(cityEl, airTempP, humidityP, cloudP, precipP, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
-
+      div.append(cityEl, windP, currSpeedsP, currDirectionP, waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP);
+      // , airTempP, humidityP, cloudP, precipP -----extra weath info
       $('#main').append(div);
     });
   };
@@ -130,7 +154,7 @@ $(document).ready(function () {
       const moonsetP = $('<p>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
       const moonphaseP = $('<p>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
 
-      div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
+      // div.append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
 
       $('#main').append(div);
     });

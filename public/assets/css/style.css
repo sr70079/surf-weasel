@@ -3,6 +3,7 @@ body {
   background-size: cover;
   height:100%;
   background-image: url("../images/surfer.png");
+  background-attachment: fixed;
 }
 
 .jumbotron {
@@ -11,12 +12,6 @@ body {
 
 .modal {
   color: black;
-}
-
-.btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
 }
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
@@ -71,6 +66,7 @@ hr {
 
 .form-control {
   border-radius: 18px 18px 18px 18px;
+  height: 30px;
 }
 
 .weasy {
@@ -82,12 +78,17 @@ hr {
 
 nav {
   height: 80px;
-  border-bottom: 6px solid yellow;
-  overflow: visible;
+  border-bottom: 2px solid yellow;
+  /* overflow: visible; */
 }
 
 h2 {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Bangers", cursive;
+}
+
+#login, p, a {
+  font-family: "Bangers", cursive;
+  font-size: large;
 }
 
 .navbar-brand {
@@ -97,19 +98,41 @@ h2 {
   color: rgb(106, 134, 158) !important;
   font-size: 50px;
   width: 33%;
+  text-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5);
 }
 .nav {
-  /* padding: 10px 200px 40px 20px; */
-  /* justify-content: center;
-  font-family: "Bangers", cursive;
-  color: rgb(106, 134, 158) !important;
-  font-size: 50px; */
-  /* width: 33%; */
+  background-color: rgba(61, 61, 61, 0.815);
+  box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5); 
+}
+
+.navtext {
+  color: azure;
+  font-family: fantasy;
+}
+
+.side-bar {
+  background-color: rgba(240, 255, 255, 0.932);
+  box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5); 
 }
 
 .btn {
   color: rgb(230, 120, 120);
-  padding-top: 20px;
+  
   border: none;
 }
 
@@ -120,8 +143,38 @@ h2 {
 .btn-primary {
   border-radius: 18px 18px 18px 18px;
   background-color: rgb(40, 40, 43);
-  padding: 4px;
+  padding: 2px;
   justify-content: center;
-  width: 200px;
-  height: auto;
+  width: 80px;
+  height: 32px;
+}
+
+.dashLogin {
+  margin-top: 4px;
+}
+
+.card {
+  background-color: rgba(240, 255, 255, 0.815);
+  border-radius: 10px;
+  box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5); 
+}
+
+.dash {
+  background-color: rgba(240, 255, 255, 0.877);
+  border-radius: 5px;
+  /* box-shadow:
+  -1px -1px 0 rgba(255, 255, 255, 0),
+  1px 1px 0 rgba(0,0,0,.25),
+  3px 3px 3px rgba(0,0,0,.25),
+  10px 10px 20px rgba(0,0,0,.5),
+  20px 40px 40px rgba(0,0,0,.5);  */
+}
+
+footer {
+  border-top:yellow 1px solid;
 }

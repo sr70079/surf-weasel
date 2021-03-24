@@ -4,19 +4,28 @@
     <div class="row">
       <div class="col"></div>
       <div class="col-6">
-        <form>
-          <div class="form-group">
-            <h2>Login to get into the shred zone!</h2>
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="user_password" placeholder="Password">
-          </div>
-          <button id="login" type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div class="card p-5">
+          <form>
+            <div class="form-group">
+              <h2>Login to get into the shred zone!</h2>
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="user_password" placeholder="Password">
+            </div>
+            <div class="row">
+              <div class="col">
+                <button id="login" type="submit" class="btn btn-primary mt-3">login</button>
+              </div>
+              <div class="col mt-3">
+                <p class="">Or click here to <button type="button" class="btn"><a href="/signup">signup</a></button></p>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="col"></div>
     </div>

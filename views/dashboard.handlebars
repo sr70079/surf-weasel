@@ -4,77 +4,84 @@
 
 <navbar class="nav">
   <div class="container-fluid justify-content-center">
-    <button type="button"
-        class="btn btn-header-1 active"><a href="/dashboard">Home</a></button>
-    <button type="button" class="btn btn-header-2">Surf
-        Report</button>
-    <button type="button"
-        class="btn btn-header"><a href="/contact">Contact</a></button>
-    <button type="button"
-        class="btn btn-header-4"><a href="/signup">Register</a></button>
-    <button type="button"
-        class="btn btn-header-4"><a href="/login">Login</a></button>       
+    <div class="row">
+      {{!-- <div class="col">
+        <button type="button" class="btn btn-primary mt-1"><a href="/dashboard">Home</a></button>
+      </div> --}}
+      <div class="col">
+        <div class="row ml-1">
+          <h5 class="ml-1 mt-2 mr-2 navtext">Search for your Beach:</h5>
+          <form class="form-inline pl-3 pr-2">
+              <input id="searchText" class="form-control w-50 mr-2" type="text" placeholder="Search" aria-label="Search">
+              <button id="search" class="btn btn-primary" type="submit">Search</button>
+              {{!-- need to fix search button errors (only loads data of previously typed cities) --}}
+          </form>
+        </div>
+
+      </div>
+      <div class="col ml-5">
+        <div class="row ml-5">
+        {{#if isloggedin}}
+          <h5 class="ml-5 mt-2 mr-2 navtext">You are logged in as {{user.name}}</h5>
+          <a href="/logout"> <button type="btn" class="btn btn-primary ml-1 dashLogin">Logout</button></a>
+        {{else}}
+          <h5 class="ml-5 mt-2 navtext">You need to login to access full features.</h5> 
+          <button type="button" class="btn btn-primary ml-2 dashLogin"><a href="/login">Login</a></button> 
+        </div>
+      </div>
+    </div>  
   </div>
 </navbar>
 
-<div id="main-container" class="container">
-  <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Sample App</strong></p>
-    <hr class="my-4">
-    <div>
-      {{#if isloggedin}}
-        You are logged in as {{user.name}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+<div class="container-fluid">
+    <div class="row min-vh-100">
+      {{!-- sidebar --}}
+        <aside class="col-sm-2 side-bar">
 
-        
-      {{else}}
-        <p>You need to log in to use this app.</p>
-        {{!-- <input type="text" id="searchText"> --}}
+            <h5 class="mt-4 mb-3">Favorite Beach:</h5>
 
-        {{!-- <button class="btn button" id="search">Search</button> --}}
-        {{!-- <div>
-          <ul id="searchResults"></ul>
-        </div> --}}
-        
-        <div class="container-fluid">
-        <div class="row content search">
-          <div class="col-sm-3">
-            <h4>Search for a City:</h4>
-            <input type="text" id="searchText">
-            {{!-- <input id="city-search" type="text" placeholder="Search.." name="search"> --}}
-            {{!-- <button id="search"><i class="fas fa-search"></i></button> --}}
+            <div id="favBeach">
+              {{!-- append favorite beach of user here (after login) --}}
+            </div>
+            <h5 class="mt-1">Previous Searches:</h5>
+            <button id="clear" class="btn btn-sm btn-links">Clear Search History</button>  
 
-               {{!-- <button class="btn button" id="search">Search</button> --}}
-        <div>
-          <ul id="searchResults"></ul>
-        </div>
+            <div id="beachHistory">
+              {{!-- append beach search istory here --}}
+            </div>
+            
+        </aside>
+        {{!-- dashboard --}}
+        <article id="displayInfo" class="col">
+          <div id="main-container" class="dash">
+            <div class="jumbotron text-center header-wrap" align="center">
+              
+            <div>
+              {{!-- {{#if isloggedin}}
+                <p class="lead">Welcome {{user.name}}</p>
+              {{else}} --}}
+                <h3 class="lead">Welcome To Surfweasel</h3>
+            </div>
 
-
-        <div class="container"
+            <ul id="searchResults"></ul>
 
             <div id="city-storage"></div>
-        </div>
-         
-          <br>   
-            <div class="col-sm-9">
-                    <div class="row">
-                    <h2>Current Conditions:</h2>
-                    <div class ="row" id="current-condtions">
-                        
-                    </div>
-                </div>
-                <div id="main" class="well">
-                     
-                </div>
-            </div>
-        </div>
-    </div>>
-        <div id="map" style="visibility:hidden;"></div>
 
-      {{/if}}
-      <h5 id="login-err-msg"></h5>
+            {{!-- <h2>Current Conditions:</h2>   --}}
+
+            <div class ="row" id="current-condtions"></div>
+
+            <div id="main" class="well"></div>
+
+            <div id="map" style="visibility:hidden;"></div>
+
+                {{/if}}
+                <h5 id="login-err-msg"></h5>
+              </div>
+            </div>
+          </div>
+        </article>
     </div>
-  </div>
 </div>
 
 {{> modal/login-block}}
