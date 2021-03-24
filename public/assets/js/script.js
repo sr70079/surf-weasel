@@ -17,7 +17,7 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = '10cfac86-8c28-11eb-a9f7-0242ac130002-10cfad12-8c28-11eb-a9f7-0242ac130002';
+  const APIKey = 'dc97fb66-8b60-11eb-b62d-0242ac130002-dc97fbde-8b60-11eb-b62d-0242ac130002';
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
@@ -26,16 +26,12 @@ $(document).ready(function () {
   const weatherURL = baseQueryURL + 'weather/point';
 
   //   // tide
-  //   const extremePointURL = baseQueryURL + 'tide/extremes/point';
-  //   const seaLevel = baseQueryURL + 'tide/sea-level/point';
-  //   const stationsListURL = baseQueryURL + 'tide/stations';
-  //   const stationsAreaURL = baseQueryURL + 'stations/area';
+  const extremePointURL = baseQueryURL + 'tide/extremes/point';
 
   // astronomy
   const astronomyURL = baseQueryURL + 'astronomy/point';
 
   const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed,currentSpeed,currentDirection,waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
-  //   const tideParams = '';
   const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
   // load fav_beach
@@ -101,8 +97,7 @@ $(document).ready(function () {
             marker = createMarker(place);
             bounds.extend(marker.getPosition());
             getWeatherInfo(place);
-            // getTideInfo(place);
-            // getMarineInfo(place);
+            getTideInfo(place);
             getAstronmyInfo(place);
           });
           map.fitBounds(bounds);
@@ -154,15 +149,23 @@ $(document).ready(function () {
       $('#main').append(div);
     });
   };
-  //   function getTideInfo (place) {
-  //     fetch(`${weatherURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${tideParams}`, {
-  //       headers: {
-  //         'Authorization': APIKey
-  //       }
-  //     }).then((response) => response.json()).then((jsonData) => {
+  function getTideInfo (place) {
+    fetch(`${extremePointURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}`, {
+      headers: {
+        'Authorization': APIKey
+      }
+    }).then((response) => response.json()).then((jsonData) => {
+      console.log(jsonData);
+      const div = $('<div>');
+      const firstLowP = $('<p>').text('First Low Tide: ' + getDateTimeFormat(jsonData.data[0].time));
+      const firstHighP = $('<p>').text('First High Tide: ' + getDateTimeFormat(jsonData.data[1].time));
+      const secondLowP = $('<p>').text('Second Low Tide: ' + getDateTimeFormat(jsonData.data[2].time));
+      const secondHighP = $('<p>').text('Second High Tide: ' + getDateTimeFormat(jsonData.data[3].time));
 
-  //     });
-  //   };
+      div.append(firstLowP, secondLowP, firstHighP, secondHighP);
+      console.log(firstLowP, secondLowP, firstHighP, secondHighP);
+    });
+  };
   function getAstronmyInfo (place) {
     fetch(`${astronomyURL}?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}&params=${astronomyParams}`, {
       headers: {
@@ -193,11 +196,6 @@ function getDateTimeFormat (date) {
 
 // let createCity = function(response, cityName) {
 // };
-
-// tide info
-const extremeTide = undefined;// look at example on api need lat and lng with params
-const highTide = undefined;// look at example on api need lat and lng with params
-const lowTide = undefined;// look at example on api need lat and lng with params
 
 // todos after apis are set up
 
