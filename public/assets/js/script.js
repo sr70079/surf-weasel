@@ -1,5 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+// require('dotenv').config();
+
+// console.log(process.env);
+
 let map;
 let service;
 let infowindow;
@@ -17,7 +21,8 @@ function initMap () {
 
 $(document).ready(function () {
   // This is our API key
-  const APIKey = 'f1c28e16-8b74-11eb-b62d-0242ac130002-f1c28e8e-8b74-11eb-b62d-0242ac130002';
+  const APIKey = process.env.API_KEY;
+  console.log(apiKey);
 
   //   // Here we are building the URL we need to query the database
   const baseQueryURL = 'https://api.stormglass.io/v2/';
