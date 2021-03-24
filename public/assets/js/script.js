@@ -106,6 +106,11 @@ $(document).ready(function () {
     const searchText = $('#searchText').val().trim();
     // $('#main').empty();
     // $('#searchResults').empty();
+    $('#cityName').empty();
+    $('#weather').empty();
+    $('#marine').empty();
+    $('#astronomy').empty();
+    $('#tide').empty();
     saveBeachSearch();
 
     if (searchText.length >= 3) {
