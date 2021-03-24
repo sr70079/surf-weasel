@@ -7,10 +7,8 @@ deployed application URL: https://surfweasel.herokuapp.com/
 This is a useful tool to help find the best wave conditons. This application allows you to search different shore locations of your choice. Surf-Weasel is coupled with a live feed allowing you to view your location of choice to verify that the conditions suit your need. You may view this feed at any time and save your favorite feeds to your local storage. If you are a surfer in need of help finding some of the best waves in your life, don't miss out. Give this application a try!
 
 ## Table of Contents
-* [Usage](#usage)
 * [User Story](#userstory)
 * [Credits](#credits)
-* [Tests](#tests)
 * [Contributors](#contributors)
 * [License](#License)
 
@@ -21,31 +19,22 @@ SO THAT I can find the best waves and save as much time and gas as I can, to get
 
 # For developers
 
-clone the source locally:
+Clone the source code locally:
 
 $ git clone git@github.com:sr70079/surf-weasel.git
 
-## Installation
-Feel free to download this code to use the programme on your own device.  
-
 ## Install project dependencies
-$ npm install
+$ npm install (dependency name)
 
-## Usage
-To run, .  
-  
 ## Credits
 w3 schools tutorials are a great resource.
 
-## Tests
-For a video of me testing this programme, go to: 
-
 ## Contributors
-[Sarah Marshall](https://github.com/sr70079/surf-weasel)
-[Stanley Mcoy](https://github.com/stanleymcoy)
-[Devon Williams](https://github.com/Dwill629)
-[Mitchell Duncan](https://github.com/mdu830)
-[Matthew Eggleston](https://github.com/Callingrapher)
+* [Sarah Marshall](https://github.com/sr70079/surf-weasel)
+* [Stanley Mcoy](https://github.com/stanleymcoy)
+* [Devon Williams](https://github.com/Dwill629)
+* [Mitchell Duncan](https://github.com/mdu830)
+* [Matthew Eggleston](https://github.com/Callingrapher)
 
 ## License  
 This application is covered under the **MIT** license. More info can be found here: [MIT](https://opensource.org/licenses/MIT)
