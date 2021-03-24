@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const authController = require('../controllers/authController');
+// const authController = require('../controllers/authController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {

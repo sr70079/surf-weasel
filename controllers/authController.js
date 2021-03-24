@@ -67,7 +67,6 @@ module.exports = (passport, db) => {
     //   //   }
     //   // })(req, res, next);
     // }
-    
     logout: (req, res, next) => {
       req.logout();
       req.session.destroy((err) => {
