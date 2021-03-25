@@ -24,7 +24,7 @@ $(document).ready(function () {
   // API and render info on screen
   function apiCall () {
     // This is our API key
-    const APIKey = '10cfac86-8c28-11eb-a9f7-0242ac130002-10cfad12-8c28-11eb-a9f7-0242ac130002';
+    const APIKey = '9880b5da-8da9-11eb-8793-0242ac130002-9880b666-8da9-11eb-8793-0242ac130002';
     console.log(APIKey);
 
     // Here we are building the URL we need to query the database
@@ -42,6 +42,7 @@ $(document).ready(function () {
     const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed,currentSpeed,currentDirection,waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
     const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
 
+    // const searchText = $('#searchText').val().trim() || $('#favButton').val() || $('.beach').val();
     const searchText = $('#searchText').val().trim() || $('#favButton').val();
 
     function createMarker (place) {
@@ -215,7 +216,7 @@ $(document).ready(function () {
         beachRow.attr('class', 'row');
         beachButton = $('<button>');
         beachButton.text(storedBeaches[i]);
-        beachButton.attr('class', 'btn btn-primary');
+        beachButton.attr('class', 'beach btn btn-primary m-1');
         beachButton.attr('value', storedBeaches[i]);
         beachRow.append(beachButton);
         $('#beachHistory').prepend(beachRow);
@@ -224,9 +225,18 @@ $(document).ready(function () {
   }
 
   renderPreviousButton();
-
+  $('.beach').on('click', function () {
+    $('#cityName').empty();
+    $('#weather').empty();
+    $('#marine').empty();
+    $('#astronomy').empty();
+    $('#tide').empty();
+    beachStore = this.value;
+    apiCall();
+    console.log(beachStore);
+  });
+  // favorite beach button
   $('#favBeach').on('click', function () {
-    // const searchText = $('#favButton').val();
     $('#cityName').empty();
     $('#weather').empty();
     $('#marine').empty();
@@ -234,7 +244,6 @@ $(document).ready(function () {
     $('#tide').empty();
     apiCall();
   });
-
   // search for city/beach
   $('#search').on('click', function (event) {
     event.preventDefault();
