@@ -100,14 +100,12 @@ $(document).ready(function () {
     searchText.value = [''];
   }
   // render previous search
-  function renderPreviousButton() {
-
+  function renderPreviousButton () {
     let storedBeaches = JSON.parse(localStorage.getItem('#storedBeachSearches'));
-    if(storedBeaches === null){
+    if (storedBeaches === null) {
       storedBeaches = [];
     } else {
-      
-      for(let i = 0; i < storedBeaches.length; i++) {
+      for (let i = 0; i < storedBeaches.length; i++) {
         beachRow = $('<div>');
         beachRow.attr('class', 'row');
         beachButton = $('<button>');
