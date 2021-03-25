@@ -99,6 +99,28 @@ $(document).ready(function () {
     localStorage.setItem('#storedBeachSearches', JSON.stringify(storedBeaches));
     searchText.value = [''];
   }
+  // render previous search
+  function renderPreviousButton() {
+
+    let storedBeaches = JSON.parse(localStorage.getItem('#storedBeachSearches'));
+    if(storedBeaches === null){
+      storedBeaches = [];
+    } else {
+      
+      for(let i = 0; i < storedBeaches.length; i++) {
+        beachRow = $('<div>');
+        beachRow.attr('class', 'row');
+        beachButton = $('<button>');
+        beachButton.text(storedBeaches[i]);
+        beachButton.attr('class', 'btn btn-primary');
+        beachButton.attr('value', storedBeaches[i]);
+        beachRow.append(beachButton);
+        $('#beachHistory').prepend(beachRow);
+      }
+    }
+  }
+
+  renderPreviousButton();
 
   // search for city/beach
   $('#search').on('click', function (event) {
