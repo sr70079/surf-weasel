@@ -110,7 +110,7 @@ $(document).ready(function () {
         beachRow.attr('class', 'row');
         beachButton = $('<button>');
         beachButton.text(storedBeaches[i]);
-        beachButton.attr('class', 'btn btn-primary');
+        beachButton.attr('class', 'btn btn-primary ml-3 mt-2');
         beachButton.attr('value', storedBeaches[i]);
         beachRow.append(beachButton);
         $('#beachHistory').prepend(beachRow);
