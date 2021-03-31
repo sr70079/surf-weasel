@@ -52,6 +52,16 @@ $(document).ready(function () {
         favBeachButton.attr('id', 'favButton');
         $('#favBeach').append(favBeachButton);
       }
+      // favorite beach button
+      $('#favBeach').on('click', function () {
+        $('#cityName').empty();
+        $('#weather').empty();
+        $('#marine').empty();
+        $('#astronomy').empty();
+        $('#tide').empty();
+        const searchText = $('#favButton').val();
+        apiCall(searchText);
+      });
     });
   }
   loadFavBeach();
@@ -79,15 +89,16 @@ $(document).ready(function () {
         $('#astronomy').empty();
         $('#tide').empty();
         const searchText = $(this).val();
-        console.log(searchText);
         apiCall(searchText);
       });
     }
   }
   // API and render info on screen
-  function apiCall (searchText) {
+  async function apiCall (searchText) {
+    let APIKey = await fetch('/api/key');
+    APIKey = await APIKey.json();
     // This is our API key
-    const APIKey = '8e9f917c-8817-11eb-a9f7-0242ac130002-8e9f921c-8817-11eb-a9f7-0242ac130002';
+    // const APIKey = '8e9f917c-8817-11eb-a9f7-0242ac130002-8e9f921c-8817-11eb-a9f7-0242ac130002';
     console.log(APIKey);
 
     // Here we are building the URL we need to query the database
@@ -164,8 +175,11 @@ $(document).ready(function () {
 
         // let tempF = (jsonData.hours[0].airTemperature.noaa - 273.15) * 1.80 + 32;
         // let tempP = $('<p>').text('Temperature (C) ' + tempF.toFixed(2));
+        $('#cityName').empty();
+        $('#weather').empty();
+        $('#marine').empty();
+        $('#cityName').html(cityEl);
 
-        $('#cityName').append(cityEl);
         $('#weather').append(airTempP, humidityP, cloudP, precipP, windP);
         $('#marine').append(waveHeightP, swellHeightP, swellDirectionP, swellPeriodP, waterTempP, currSpeedsP, currDirectionP);
       });
@@ -181,7 +195,7 @@ $(document).ready(function () {
         const firstHighP = $('<li>').text('First High Tide: ' + getDateTimeFormat(jsonData.data[1].time));
         const secondLowP = $('<li>').text('Second Low Tide: ' + getDateTimeFormat(jsonData.data[2].time));
         const secondHighP = $('<li>').text('Second High Tide: ' + getDateTimeFormat(jsonData.data[3].time));
-
+        $('#tide').empty();
         $('#tide').append(firstLowP, secondLowP, firstHighP, secondHighP);
       });
     };
@@ -196,7 +210,7 @@ $(document).ready(function () {
         const moonriseP = $('<li>').text('Moonrise: ' + getDateTimeFormat(jsonData.data[0].moonrise));
         const moonsetP = $('<li>').text('Moonset: ' + getDateTimeFormat(jsonData.data[0].moonset));
         const moonphaseP = $('<li>').text('Moon Phase: ' + jsonData.data[0].moonPhase.closest.text);
-
+        $('#astronomy').empty();
         $('#astronomy').append(sunriseP, sunsetP, moonriseP, moonsetP, moonphaseP);
       });
     };
@@ -230,16 +244,7 @@ $(document).ready(function () {
   });
 
   renderPreviousButton();
-  // favorite beach button
-  $('#favBeach').on('click', function () {
-    $('#cityName').empty();
-    $('#weather').empty();
-    $('#marine').empty();
-    $('#astronomy').empty();
-    $('#tide').empty();
-    const searchText = $('#favButton').val();
-    apiCall(searchText);
-  });
+
   // search for city/beach
   $('#search').on('click', function (event) {
     event.preventDefault();
