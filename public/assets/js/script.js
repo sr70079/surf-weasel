@@ -20,11 +20,10 @@ function initMap () {
 };
 
 $(document).ready(function () {
-  // const searchText = $('#searchText').val();
   // API and render info on screen
-  function apiCall () {
+  function apiCall (searchText) {
     // This is our API key
-    const APIKey = '9880b5da-8da9-11eb-8793-0242ac130002-9880b666-8da9-11eb-8793-0242ac130002';
+    const APIKey = '21386428-9173-11eb-a242-0242ac130002-2138654a-9173-11eb-a242-0242ac130002';
     console.log(APIKey);
 
     // Here we are building the URL we need to query the database
@@ -41,9 +40,6 @@ $(document).ready(function () {
 
     const weatherParams = 'airTemperature,humidity,cloudCover,precipitation,windSpeed,currentSpeed,currentDirection,waveHeight,swellHeight,swellDirection,swellPeriod,waterTemperature';
     const astronomyParams = 'sunrise,sunset,moonrise,moonset,moonPhase';
-
-    // const searchText = $('#searchText').val().trim() || $('#favButton').val() || $('.beach').val();
-    const searchText = $('#searchText').val().trim() || $('#favButton').val();
 
     function createMarker (place) {
       if (!place.geometry || !place.geometry.location) return;
@@ -231,9 +227,9 @@ $(document).ready(function () {
     $('#marine').empty();
     $('#astronomy').empty();
     $('#tide').empty();
+    const searchText = $('.beach').val();
     beachStore = this.value;
-    apiCall();
-    console.log(beachStore);
+    apiCall(searchText);
   });
   // favorite beach button
   $('#favBeach').on('click', function () {
@@ -242,7 +238,8 @@ $(document).ready(function () {
     $('#marine').empty();
     $('#astronomy').empty();
     $('#tide').empty();
-    apiCall();
+    const searchText = $('#favButton').val();
+    apiCall(searchText);
   });
   // search for city/beach
   $('#search').on('click', function (event) {
@@ -252,7 +249,8 @@ $(document).ready(function () {
     $('#marine').empty();
     $('#astronomy').empty();
     $('#tide').empty();
+    const searchText = $('#searchText').val().trim();
     saveBeachSearch();
-    apiCall();
+    apiCall(searchText);
   });
 });
