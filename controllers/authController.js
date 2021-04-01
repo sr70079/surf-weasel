@@ -1,3 +1,4 @@
+require('dotenv').config();
 module.exports = (passport, db) => {
   return {
     register: (req, res) => {
@@ -107,14 +108,9 @@ module.exports = (passport, db) => {
         return res.json(true);
       });
     },
-    deleteUser: (req, res) => {
-      // db.User.destroy({
-      //   where: { id: req.params.id }
-      // }).then(() => {
-      //   res.json(true);
-      // }).catch(() => {
-      //   res.json(false);
-      // });
+    getKey: (req, res) => {
+      console.log(process.env.API_KEY);
+      res.json(process.env.API_KEY);
     }
   };
 };
