@@ -1,23 +1,25 @@
 /* eslint-disable no-undef */
-const loginCard = popmotion.styler(document.querySelector('.card'));
+const loginCard = popmotion.styler(document.querySelector('.animate'));
 // login card animate
 popmotion.tween({
   from: {
     scale: 0.7,
-    opacity: 0
+    opacity: 0,
+    y: 100
   },
   to: {
     scale: 1,
-    opacity: 1
+    opacity: 1,
+    y: 0
   },
   duration: 1000
 }).start(loginCard.set);
 
-const signupCard = popmotion.styler(document.querySelector('.signupCard'));
+const formAnimate = popmotion.styler(document.querySelector('.animateForm'));
 // signup card animate
 popmotion.tween({
   from: {
-    scale: 0.7,
+    scale: 0,
     opacity: 0
   },
   to: {
@@ -25,19 +27,4 @@ popmotion.tween({
     opacity: 1
   },
   duration: 1000
-}).start(signupCard.set);
-
-// const dashboard = popmotion.styler(document.querySelector('#main-constainer'));
-// const dashContainer = document.querySelector('main-container');
-// // signup card animate
-// popmotion.tween({
-//   from: {
-//     scale: 0.7,
-//     opacity: 0
-//   },
-//   to: {
-//     scale: 1,
-//     opacity: 1
-//   },
-//   duration: 1000
-// }).start(dashboard.set);
+}).start(formAnimate.set);
