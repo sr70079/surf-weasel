@@ -6,6 +6,17 @@ deployed application URL: https://surfweasel.herokuapp.com/
 ## Description
 This is a useful tool to help find the best wave conditons. This application allows you to search different shore locations of your choice. Surf-Weasel is coupled with a live feed allowing you to view your location of choice to verify that the conditions suit your need. You may view this feed at any time and save your favorite feeds to your local storage. If you are a surfer in need of help finding some of the best waves in your life, don't miss out. Give this application a try!
 
+## Demo
+
+Demo of Surf Weasel
+<img src="/public/assets/images/surfweasel.gif">
+
+## Screenshots
+
+![login page](/public/assets/images/login.PNG)
+![signup page](/public/assets/images/signup.PNG)
+![dashboard](/public/assets/images/dashboard.PNG)
+
 ## Table of Contents
 * [User Story](#userstory)
 * [Future Development](#futuredevelopment)
